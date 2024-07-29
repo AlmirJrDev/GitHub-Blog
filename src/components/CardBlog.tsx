@@ -31,7 +31,7 @@ export function CardBlog() {
     }, [username]);
   
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
+    if (error) return <div>{error}</div>;
   return(
     <div className="rounded-md mt-14 bg-baseProfile w-[868px] h-[212px] flex items-center ">
     <div className="p-4 ml-4">

@@ -83,7 +83,8 @@ export function Blog() {
         </div>
         <div className="mt-10 grid grid-cols-2 gap-8">
           {issues.map((issue) => (
-            <div key={issue.id} className="flex flex-col items-center justify-center w-[416px] bg-basePost rounded-md p-8">
+            <a href='/Post' key={issue.id} className="flex flex-col items-center justify-center w-[416px] bg-basePost rounded-md p-8">
+              
               <div className="flex w-full justify-between items-baseline mb-5">
                 <h4 className="text-lg text-baseTitle w-[213px]">{issue.title}</h4>
                 <span className="text-xs text-baseSpan">{issue.createdAtDistance}</span>
@@ -91,7 +92,8 @@ export function Blog() {
               <div>
                 <p className="text-baseText line-clamp-4">{issue.body}</p>
               </div>
-            </div>
+             
+            </a>
           ))}
         </div>
       </main>
