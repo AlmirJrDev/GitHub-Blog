@@ -1,7 +1,7 @@
 // src/api/github.ts
 import api from "./axios";
 
-// Defina tipos para os dados esperados da API do GitHub
+// Tipos para os dados esperados da API do GitHub
 export interface User {
   login: string;
   name: string;
@@ -49,5 +49,13 @@ export const searchRepoIssues = async (query: string = ''): Promise<SearchResult
   const owner = 'AlmirJrDev';
   const repo = 'GitHub-Blog';
   const response = await api.get(`/search/issues?q=${query}+repo:${owner}/${repo}`);
+  return response.data;
+};
+
+// Adicionar o método getIssue
+export const getIssue = async (issueNumber: string): Promise<Issue> => {
+  const owner = 'AlmirJrDev';
+  const repo = 'GitHub-Blog';
+  const response = await api.get(`/repos/${owner}/${repo}/issues/${issueNumber}`);
   return response.data;
 };
