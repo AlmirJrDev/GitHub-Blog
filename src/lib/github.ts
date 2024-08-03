@@ -40,6 +40,7 @@ export interface Issue {
   body: string;
   html_url: string;
   created_at: string;
+  comments: string;
   user: {
     login: string;
   };

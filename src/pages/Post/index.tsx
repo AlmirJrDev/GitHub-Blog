@@ -6,12 +6,14 @@ import { formatDistanceToNow, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Logo from '/logo.svg';
 import Github from "/github.svg";
+import Calendar from "/calendar.svg";
 
 interface ExtendedIssue extends Issue {
   createdAtDistance: string;
 }
 
 export function Post() {
+
   const { issueNumber } = useParams<{ issueNumber: string }>();
   const [issue, setIssue] = useState<ExtendedIssue | null>(null);
   const [user, setUser] = useState<User | null>(null);
@@ -49,17 +51,18 @@ export function Post() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
+  const commentCount = issue?.comments ? parseInt(issue.comments, 10) : 0;
+
   return (
     <>
-      <header className="justify-center items-center flex mb-12">
+      <header className="justify-center items-center flex mb-16">
         <div className="flex flex-col items-center">
           <img src={Logo} className="w-30 mt-8" alt="Logo" />
-          <div className="rounded-md mt-14 pl-2 bg-baseProfile w-[864px] h-[168px] flex justify-between">
-            <div className="p-4 flex flex-col">
+          <div className="rounded-md mt-14 p-4 bg-baseProfile w-[864px] h-[168px] flex justify-between">
+            <div className="p-4 flex flex-col w-full">
               <div className=''>
-                <a href="/" className='ml-4 font-semibold text-xs uppercase text-blue flex items-center justify-center w-1'>Voltar</a>  
+                <a href="/" className='ml-4 font-semibold text-xs uppercase text-blue flex items-center justify-center w-1 pb-3'>Voltar</a>  
                 <h2 className="text-baseTitle font-semibold text-2xl">{issue?.title}</h2>
-                <p className="text-baseText">{issue?.body}</p>
               </div>
               <div className="text-baseText gap-4 flex">
                 <div className="flex gap-2">
@@ -67,17 +70,28 @@ export function Post() {
                   <span>{user?.login}</span>
                 </div>
                 <div className="flex gap-2">
-                  <img src="" alt="" />
-                  <span>{user?.followers} seguidores</span>
+                  <img src={Calendar} alt="Github" />
+                  <span> Há {issue?.createdAtDistance}</span>
                 </div>
-              </div>
-            </div>  
-            <div className='p-4'>
-              <a href={user?.html_url} className='font-semibold text-xs uppercase text-blue flex items-center justify-center gap-2'>Github</a>
+                <div className="flex gap-2">
+                  <img src={Calendar} alt="Github" />
+                  <span>
+                    {issue?.comments === "1" ? (
+                      <span>{commentCount} comentário</span>
+                    ) : (
+                      <span>{commentCount} comentários</span>
+                    )}
+                  </span>
+                </div>
+                </div>
+              </div>  
+            <div className='p-4 w-auto'>
+              <a href={issue?.html_url} className='font-semibold text-xs uppercase text-blue text-center '>VER NO Github</a>
             </div>
           </div>
         </div>
       </header>
+      <div className='flex items-center justify-center ]'><p className='text-baseText w-[800px]'>{issue?.body}</p></div>
     </>
   );
 }
