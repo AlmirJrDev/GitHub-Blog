@@ -1,9 +1,9 @@
-// Post.tsx
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUser, getIssue, User, Issue } from '../../lib/github';
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import ReactMarkdown from 'react-markdown';
 import Logo from '/logo.svg';
 import Github from "/github.svg";
 import Calendar from "/calendar.svg";
@@ -83,15 +83,19 @@ export function Post() {
                     )}
                   </span>
                 </div>
-                </div>
-              </div>  
+              </div>
+            </div>  
             <div className='p-4 w-auto'>
               <a href={issue?.html_url} className='font-semibold text-xs uppercase text-blue text-center '>VER NO Github</a>
             </div>
           </div>
         </div>
       </header>
-      <div className='flex items-center justify-center ]'><p className='text-baseText w-[800px]'>{issue?.body}</p></div>
+      <div className='flex items-center justify-center'>
+        <div className='text-baseText w-[800px]'>
+          {issue && <ReactMarkdown>{issue.body}</ReactMarkdown>}
+        </div>
+      </div>
     </>
   );
 }

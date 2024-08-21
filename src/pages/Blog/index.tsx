@@ -5,6 +5,7 @@ import { ptBR } from 'date-fns/locale';
 import { CardBlog } from '../../components/CardBlog';
 import Logo from '/logo.svg';
 import { Issue, SearchResult, searchRepoIssues } from '../../lib/github';
+import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 
 interface ExtendedIssue extends Issue {
@@ -77,7 +78,7 @@ export function Blog() {
                 <span className="text-xs text-baseSpan">{issue.createdAtDistance}</span>
               </div>
               <div>
-                <p className="text-baseText line-clamp-4">{issue.body}</p>
+                <p className="text-baseText line-clamp-4">  {issue && <ReactMarkdown>{issue.body}</ReactMarkdown>}</p>
               </div>
             </Link>
           ))}
