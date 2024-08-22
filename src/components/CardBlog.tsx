@@ -33,9 +33,9 @@ export function CardBlog() {
     if (loading) return <p>Loading...</p>;
     if (error) return <div>{error}</div>;
   return(
-    <div className="rounded-md mt-14 bg-baseProfile w-[868px] h-[212px] flex items-center max-sm:flex-col max-sm:w-auto max-sm:h-auto ">
+    <div className="rounded-md mt-14 bg-baseProfile w-[868px] h-[212px] flex items-center max-lg:flex-col max-lg:w-auto max-lg:h-auto ">
     <div className="p-4 ml-4">
-    <img className="rounded-xl object-cover w-52 max-sm:w-24 " src={user?.avatar_url} alt="" />
+    <img className="rounded-xl object-cover w-52 max-lg:w-24 " src={user?.avatar_url} alt="" />
     </div>
     <div className="p-4 flex flex-col sm:">
       <div className="flex justify-between pb-4">
@@ -54,7 +54,7 @@ export function CardBlog() {
           {user?.bio}
         </p>
       </div>
-      <div className="text-baseText gap-4 flex max-sm:justify-between items-center ">
+      <div className="text-baseText gap-4 flex max-lg:justify-between items-center ">
         <div className="flex gap-2 " >
           <img src={Github} alt="" />
           <span>{user?.login}</span>

@@ -53,7 +53,7 @@ export function Blog() {
         </div>
       </header>
       <main className="flex justify-center items-center flex-col mb-12">
-        <div className="w-[868px] max-sm:w-3/4">
+        <div className="w-[868px] max-lg:w-3/4">
           <div className="flex justify-between mb-4">
             <h3 className="text-baseTitle text-sm font-semibold">Publicações</h3>
             <span className="text-baseText text-xs font-thin">{issues.length} publicações</span>
@@ -70,7 +70,7 @@ export function Blog() {
           {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-8 max-sm:grid-cols-1">
+        <div className="mt-10 grid grid-cols-2 gap-8 max-lg:grid-cols-1">
           {issues.map((issue) => (
             <Link to={`/post/${issue.number}`} key={issue.id} className="flex flex-col items-center justify-center w-[416px] bg-basePost rounded-md p-8">
               <div className="flex w-full justify-between items-baseline mb-5">
