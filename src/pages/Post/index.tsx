@@ -58,14 +58,14 @@ export function Post() {
       <header className="justify-center items-center flex mb-16">
         <div className="flex flex-col items-center">
           <img src={Logo} className="w-30 mt-8" alt="Logo" />
-          <div className="rounded-md mt-14 p-4 bg-baseProfile w-[864px] h-[168px] flex justify-between">
+          <div className="rounded-md mt-14 p-4 bg-baseProfile w-[864px] h-[168px] flex justify-between max-sm:w-auto max-sm:h-auto">
             <div className="p-4 flex flex-col w-full">
               <div className=''>
                 <a href="/" className='ml-4 font-semibold text-xs uppercase text-blue flex items-center justify-center w-1 pb-3'>Voltar</a>  
                 <h2 className="text-baseTitle font-semibold text-2xl">{issue?.title}</h2>
               </div>
-              <div className="text-baseText gap-4 flex">
-                <div className="flex gap-2">
+              <div className="text-baseText gap-4 flex max-sm:justify-center items-center ">
+                <div className="flex gap-2 max-sm:w-full ">
                   <img src={Github} alt="Github" />
                   <span>{user?.login}</span>
                 </div>
