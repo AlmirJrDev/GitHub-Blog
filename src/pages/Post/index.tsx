@@ -64,8 +64,8 @@ export function Post() {
                 <a href="/" className='ml-4 font-semibold text-xs uppercase text-blue flex items-center justify-center w-1 pb-3'>Voltar</a>  
                 <h2 className="text-baseTitle font-semibold text-2xl">{issue?.title}</h2>
               </div>
-              <div className="text-baseText gap-4 flex max-sm:justify-center items-center ">
-                <div className="flex gap-2 max-sm:w-full ">
+              <div className="text-baseText gap-4 flex max-sm:justify-between  max-sm:text-xs ">
+                <div className="flex gap-2  ">
                   <img src={Github} alt="Github" />
                   <span>{user?.login}</span>
                 </div>
